@@ -93,7 +93,7 @@ namespace Game
 
         public void ShowVictoryValue(bool active,float value = 0)
         {
-            this.VictoryValue.text = $"VictoryValue ; {value}";
+            this.VictoryValue.text = $"VictoryValue : {value}";
             this.VictoryValue.gameObject.SetActive(active);
         }
     }

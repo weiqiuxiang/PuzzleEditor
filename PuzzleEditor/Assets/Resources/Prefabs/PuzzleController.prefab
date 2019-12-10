@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -764, y: 0}
+  m_AnchoredPosition: {x: -708, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875193937378921230
@@ -124,7 +124,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875193937410495274}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -144,7 +144,18 @@ MonoBehaviour:
   bottlesSettor: {fileID: 875193937410495270}
   OnVictory:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &875193937410495271
@@ -178,15 +189,25 @@ MonoBehaviour:
   puzzleManager: {fileID: 875193937410495273}
   bottleParent: {fileID: 875193937378921235}
   bottlePrefab: {fileID: 0}
-  MaxBottleAmount: 1
+  MaxBottleAmount: 3
   VictoryTarget: 0
-  VictoryAmount: 0
+  VictoryAmount: 8
   bottleDatas:
   - IsTarget: 1
     BottleImage: {fileID: 0}
     BottleMask: {fileID: 0}
+    CurrentAmount: 5
+    MaxAmount: 10
+  - IsTarget: 0
+    BottleImage: {fileID: 0}
+    BottleMask: {fileID: 0}
     CurrentAmount: 0
-    MaxAmount: 0
+    MaxAmount: 5
+  - IsTarget: 0
+    BottleImage: {fileID: 0}
+    BottleMask: {fileID: 0}
+    CurrentAmount: 6
+    MaxAmount: 6
   bottleList: []
 --- !u!1 &875193938136326533
 GameObject:
@@ -336,8 +357,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
