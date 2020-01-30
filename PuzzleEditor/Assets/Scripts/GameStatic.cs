@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game
+namespace PourWaterPuzzle
 {
     public class GameStatic
     {
@@ -18,10 +18,6 @@ namespace Game
         #region 动画移动定数
         static readonly public float BottleMoveDist = 30f;        // 瓶子的渐出时间
         static readonly public float BottleRotateAngle = -125;    // 瓶子的旋转角度
-        #endregion
-
-        #region  Prefab的Resources文件的位置 TODO::应做一个读取prefab的控制器
-        static readonly public string BottlePrefabPath = "Prefabs/Bottle";
         #endregion
     }
 }

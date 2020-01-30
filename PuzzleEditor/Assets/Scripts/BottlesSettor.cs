@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Game
+namespace PourWaterPuzzle
 {
     [System.Serializable]
     public class BottleData
@@ -18,7 +18,7 @@ namespace Game
     public class BottlesSettor : MonoBehaviour
     {
         [SerializeField]
-        private PuzzleManager puzzleManager = null;
+        private PourWaterPuzzleController puzzleManager = null;
         [SerializeField]
         private GameObject bottleParent = null;
         [SerializeField]
@@ -50,7 +50,6 @@ namespace Game
 
         void OnEnable()
         {
-            this.getPrefab();
             this.resetList();
             this.setBottleDatas();
         }
@@ -71,20 +70,6 @@ namespace Game
         {
             gameObject.SetActive(false);
             gameObject.SetActive(true);
-        }
-
-        private void getPrefab()
-        {
-            if (this.bottlePrefab == null)
-            {
-                var prefab = Resources.Load(GameStatic.BottlePrefabPath) as GameObject;
-                if (prefab == null)
-                {
-                    Debug.LogError($"Resource is no exist in {GameStatic.BottlePrefabPath}");
-                    return;
-                }
-                this.bottlePrefab = prefab;
-            }
         }
 
         private void resetList()

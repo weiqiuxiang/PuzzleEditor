@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Utility
+namespace PourWaterPuzzle.Utility
 {
     public static class ImageUtility
     {

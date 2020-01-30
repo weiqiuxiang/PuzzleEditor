@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using System.Linq;
 
-namespace Game
+namespace PourWaterPuzzle
 {
     [CustomEditor(typeof(BottlesSettor))]
     public class BottlesSettorEditor : Editor
@@ -73,15 +73,18 @@ namespace Game
 
             var puzzleManager = serializedObject.FindProperty("puzzleManager");
             GUI.enabled = false;
-            EditorGUILayout.ObjectField(puzzleManager, typeof(PuzzleManager));
+            EditorGUILayout.ObjectField(puzzleManager, typeof(PourWaterPuzzleController));
             GUI.enabled = true;
             if (puzzleManager.objectReferenceValue == null)
             {
-                puzzleManager.objectReferenceValue = this.BottlesSettor_target.GetComponent<PuzzleManager>();
+                puzzleManager.objectReferenceValue = this.BottlesSettor_target.GetComponent<PourWaterPuzzleController>();
             }
             
             var bottleParent = serializedObject.FindProperty("bottleParent");
             EditorGUILayout.ObjectField(bottleParent, typeof(GameObject));
+
+            var bottlePrefab = serializedObject.FindProperty("bottlePrefab");
+            EditorGUILayout.ObjectField(bottlePrefab, typeof(GameObject));
 
             EditorGUILayout.EndVertical();
         }

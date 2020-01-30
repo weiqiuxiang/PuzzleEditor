@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace PourWaterPuzzle
 {
     public class Bottle : MonoBehaviour
     {

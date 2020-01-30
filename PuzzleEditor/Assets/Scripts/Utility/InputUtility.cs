@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Utility
+namespace PourWaterPuzzle.Utility
 {
     public class InputUtility : SingletonMonoBehaviorCreateDontDestory<InputUtility>
     {
         private float touchTime = 0;
 
-#if !UNITY_EDITOR
         private Touch prevTouch;
         private Touch nowTouch;
-#endif
         public float TouchTime => touchTime;
 
         protected override void Awake()
@@ -35,7 +33,7 @@ namespace Game.Utility
 
         private void touchUpdateMouse()
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 this.touchTime += Time.deltaTime;
             }
@@ -45,7 +43,6 @@ namespace Game.Utility
             }
         }
 
-#if !UNITY_EDITOR
         private void touchUpdateDevice()
         {
             this.prevTouch = this.nowTouch;
@@ -66,7 +63,6 @@ namespace Game.Utility
                 }
             }
         }
-#endif
 
         public void SetTouchTimeToZero()
         {
@@ -80,11 +76,14 @@ namespace Game.Utility
         public bool TouchScreenDown()
         {
             bool isInput = false;
-#if UNITY_EDITOR
-            isInput = Input.GetMouseButtonDown(0);
-#else
-            isInput = this.nowTouch.phase == TouchPhase.Began && this.prevTouch.phase != TouchPhase.Began;
-#endif
+            if (Application.isEditor)
+            {
+                isInput = Input.GetMouseButtonDown(0);
+            }
+            else
+            {
+                isInput = this.nowTouch.phase == TouchPhase.Began && this.prevTouch.phase != TouchPhase.Began;
+            }
             return isInput;
         }
     }

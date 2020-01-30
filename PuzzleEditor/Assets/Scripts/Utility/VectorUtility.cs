@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Utility
+namespace PourWaterPuzzle.Utility
 {
     public static class VectorUtility
     {
